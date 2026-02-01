@@ -2,6 +2,10 @@
 const urlParams = new URLSearchParams(window.location.search);
 const currentMode = urlParams.get('mode') || 'callum';
 
+// Debug: log the mode
+console.log('Current mode:', currentMode);
+console.log('URL search:', window.location.search);
+
 // Map center coordinates for each mode
 const mapSettings = {
     callum: { center: [51.3, 0.3], zoom: 8, subtitle: '20 CIRCULAR WALKS // 2HR DRIVE FROM EAST LONDON' },
@@ -77,7 +81,9 @@ function createMarkerIcon(type) {
 // Fetch and display locations
 async function loadLocations() {
     try {
-        const response = await fetch(`/api/locations?mode=${currentMode}`);
+        const url = '/api/locations?mode=' + currentMode;
+        console.log('Fetching locations from:', url);
+        const response = await fetch(url);
         const data = await response.json();
         locations = data.locations;
 
@@ -169,7 +175,9 @@ async function loadWeather(date) {
     showLoading(true);
 
     try {
-        const response = await fetch(`/api/weather?date=${date}&mode=${currentMode}`);
+        const url = '/api/weather?date=' + date + '&mode=' + currentMode;
+        console.log('Fetching weather from:', url);
+        const response = await fetch(url);
         weatherData = await response.json();
 
         // Clear existing rain overlay
