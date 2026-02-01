@@ -275,11 +275,12 @@ document.getElementById('date-picker').addEventListener('change', (e) => {
 });
 
 // Mode button event listeners
-document.querySelectorAll('.mode-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        const mode = e.target.dataset.mode;
-        switchMode(mode);
-    });
+document.getElementById('mode-callum').addEventListener('click', () => {
+    switchMode('callum');
+});
+
+document.getElementById('mode-robert').addEventListener('click', () => {
+    switchMode('robert');
 });
 
 // Initialize the app
