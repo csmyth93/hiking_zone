@@ -1,5 +1,6 @@
-// Current mode (callum or robert)
-let currentMode = 'callum';
+// Get mode from URL parameter (defaults to callum)
+const urlParams = new URLSearchParams(window.location.search);
+const currentMode = urlParams.get('mode') || 'callum';
 
 // Map center coordinates for each mode
 const mapSettings = {
@@ -7,8 +8,14 @@ const mapSettings = {
     robert: { center: [53.5, -2.4], zoom: 8, subtitle: '20 CIRCULAR WALKS // 2HR DRIVE FROM NEWTON-LE-WILLOWS' }
 };
 
+// Get settings for current mode
+const settings = mapSettings[currentMode] || mapSettings.callum;
+
+// Update subtitle
+document.getElementById('subtitle-text').textContent = settings.subtitle;
+
 // Initialize the map
-const map = L.map('map').setView(mapSettings.callum.center, mapSettings.callum.zoom);
+const map = L.map('map').setView(settings.center, settings.zoom);
 
 // Add OpenStreetMap tiles
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -240,30 +247,6 @@ function initDatePicker() {
     datePicker.max = maxDate.toISOString().split('T')[0];
 }
 
-// Switch mode (callum or robert)
-async function switchMode(mode) {
-    if (mode === currentMode) return;
-
-    currentMode = mode;
-
-    // Update button states
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
-
-    // Update subtitle
-    document.getElementById('subtitle-text').textContent = mapSettings[mode].subtitle;
-
-    // Pan map to new region
-    map.setView(mapSettings[mode].center, mapSettings[mode].zoom);
-
-    // Reload locations and weather for new mode
-    await loadLocations();
-    const date = document.getElementById('date-picker').value;
-    await loadWeather(date);
-}
-
 // Event listeners
 document.getElementById('refresh-btn').addEventListener('click', () => {
     const date = document.getElementById('date-picker').value;
@@ -272,15 +255,6 @@ document.getElementById('refresh-btn').addEventListener('click', () => {
 
 document.getElementById('date-picker').addEventListener('change', (e) => {
     loadWeather(e.target.value);
-});
-
-// Mode button event listeners
-document.getElementById('mode-callum').addEventListener('click', () => {
-    switchMode('callum');
-});
-
-document.getElementById('mode-robert').addEventListener('click', () => {
-    switchMode('robert');
 });
 
 // Initialize the app

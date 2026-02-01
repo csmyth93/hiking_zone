@@ -96,12 +96,13 @@ The hiking map should appear!
 
 ### Step 6: Using the App
 
-1. **Select your mode** - Click "Callum" or "Robert" at the top to switch between London and Newton-le-Willows hiking spots
+1. **Choose who's hiking** - On the landing page, click your name (Callum or Robert)
 2. **Pick a date** - Use the date picker to choose when you want to go hiking
 3. **Check the weather** - The coloured overlay shows rain levels across the region
 4. **Click on a marker** - Green dots are forest hikes, blue dots are coastal hikes
 5. **See the forecast** - Each location shows hourly rain predictions for 9am-5pm
 6. **Get directions** - Click "View Circular Walk Route" to open AllTrails
+7. **Switch user** - Click "BACK" in the top left to return to the landing page
 
 ### Step 7: Stopping the App
 

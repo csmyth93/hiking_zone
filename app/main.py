@@ -10,7 +10,7 @@ APP_DIR = Path(__file__).parent
 
 app = FastAPI(
     title="UK Hiking Map",
-    description="Interactive map showing hiking locations near London with rain forecasts"
+    description="Interactive map showing hiking locations with rain forecasts"
 )
 
 # Mount static files
@@ -24,6 +24,12 @@ app.include_router(api.router)
 
 
 @app.get("/")
-async def index(request: Request):
-    """Serve the main map page."""
+async def landing(request: Request):
+    """Serve the landing page with mode selection."""
+    return templates.TemplateResponse("landing.html", {"request": request})
+
+
+@app.get("/map")
+async def map_page(request: Request):
+    """Serve the map page."""
     return templates.TemplateResponse("index.html", {"request": request})

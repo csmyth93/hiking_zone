@@ -73,6 +73,29 @@ header {
     text-align: center;
     margin-bottom: 30px;
     padding: 20px 0;
+    position: relative;
+}
+
+.back-link {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid var(--neon-cyan);
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(5, 217, 232, 0.3);
+}
+
+.back-link:hover {
+    background: var(--neon-cyan);
+    color: var(--dark-bg);
+    box-shadow: 0 0 20px rgba(5, 217, 232, 0.6);
 }
 
 .title-wrapper {
