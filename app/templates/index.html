@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIKING ZONE // UK</title>
+
+    <!-- Google Fonts - Retro style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="grid-bg"></div>
+
+    <div id="app">
+        <header>
+            <div class="title-wrapper">
+                <h1>HIKING ZONE</h1>
+                <div class="subtitle-line"></div>
+                <p class="subtitle" id="subtitle-text">20 CIRCULAR WALKS // 2HR DRIVE FROM EAST LONDON</p>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="control-group mode-selector">
+                <label>SELECT MODE</label>
+                <div class="mode-buttons">
+                    <button id="mode-callum" class="mode-btn active" data-mode="callum">CALLUM</button>
+                    <button id="mode-robert" class="mode-btn" data-mode="robert">ROBERT</button>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="date-picker">SELECT DATE</label>
+                <input type="date" id="date-picker">
+            </div>
+            <button id="refresh-btn">
+                <span class="btn-text">UPDATE FORECAST</span>
+                <span class="btn-icon">&#9654;</span>
+            </button>
+        </div>
+
+        <div id="map-container">
+            <div class="map-border"></div>
+            <div id="map"></div>
+
+            <div id="legend">
+                <h3>RAIN // 9AM-5PM</h3>
+                <div class="legend-item">
+                    <span class="legend-color dry"></span>
+                    <span>0mm DRY</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color light"></span>
+                    <span>0.1-2mm LIGHT</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color moderate"></span>
+                    <span>2-5mm MODERATE</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color heavy"></span>
+                    <span>>5mm HEAVY</span>
+                </div>
+                <div class="legend-divider"></div>
+                <div class="legend-item">
+                    <span class="legend-marker forest"></span>
+                    <span>FOREST</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-marker coastal"></span>
+                    <span>COASTAL</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="hidden">
+            <div class="loader">
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+                <div class="loader-bar"></div>
+            </div>
+            <span>LOADING DATA...</span>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+    <!-- Custom JS -->
+    <script src="/static/js/map.js"></script>
+</body>
+</html>
