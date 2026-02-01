@@ -11,6 +11,7 @@ class Location(BaseModel):
     description: str
     drive_time: str
     walk_url: str
+    user: Literal["callum", "robert"]
 
 
 class LocationsResponse(BaseModel):
