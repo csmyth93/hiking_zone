@@ -10,8 +10,8 @@ A web application that shows 20 circular walking routes with real-time rain fore
 - Hourly rain breakdown for each location (9am-5pm walking hours)
 - Links to AllTrails for route directions
 - **Two modes**:
-  - **Callum mode**: Hikes within 2 hours of East London (E7 0AR)
-  - **Robert mode**: Hikes within 2 hours of Newton-le-Willows (WA12 9US)
+  - **Callum mode**: Hikes within 2 hours of East London
+  - **Robert mode**: Hikes within 2 hours of Newton-le-Willows
 
 ---
 
