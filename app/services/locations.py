@@ -1,6 +1,6 @@
 from app.models.schemas import Location
 from urllib.parse import quote_plus
-from typing import Literal
+from typing import Literal, Optional
 
 
 def _search_url(name: str) -> str:
@@ -228,7 +228,7 @@ def get_all_locations(mode: Mode = "callum") -> list[Location]:
     return [loc for loc in ALL_LOCATIONS if loc.user == mode]
 
 
-def get_location_by_id(location_id: int, mode: Mode = "callum") -> Location | None:
+def get_location_by_id(location_id: int, mode: Mode = "callum") -> Optional[Location]:
     """Get a specific location by ID for the specified user."""
     locations = get_all_locations(mode)
     for loc in locations:
